@@ -1,1 +1,2 @@
-# index-performance
+# Measure the impact of indexes on performance
+The goal of this repository is to store the code for an article that will investigate and measure the NEGATIVE impact of indexes on performance. In other words - how much will indexes slow inserts and updates?
