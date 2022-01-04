@@ -7,4 +7,4 @@ services:
              - POSTGRES_PASSWORD 
              - POSTGRES_PORT
         ports:
-            - '4000:4000'
+            - '4000:5432'
