@@ -1,3 +1,4 @@
+drop table test;
 create table test (
 	id integer,
 	col_char_1 varchar(32),
@@ -10,13 +11,21 @@ create table test (
 
 );
 
+drop table test2;
+create table test2 as
+select * from test
+where 1=0;
+
+drop sequence test_id_seq;
 create sequence test_id_seq;
 
 CREATE OR REPLACE PROCEDURE public.insert_test_row()
 LANGUAGE 'sql'
 AS $BODY$
 insert into test(id, col_char_1, col_char_2, col_char_3, col_num_1, col_num_2, col_date, col_timestamp)
-values (nextval('test_id_seq'), 'a', 'b', 'a', 1,2,'1997-01-13', now())
+values (nextval('test_id_seq'), 'a', 'b', 'a', (select random()*100),(select random()*1000),(select NOW() + (random() * (NOW()+'90 days' - NOW())) + '30 days'), (select timestamp '2014-01-10 20:00:00' +
+       random() * (timestamp '2014-01-20 20:00:00' -
+                   timestamp '2014-01-10 10:00:00')))
 ;
 $BODY$;
 
@@ -30,9 +39,12 @@ begin
 end; $$
 -- 1 min 9 s
 
-create index id_idx on test (id);
-truncate table test;
-select * from test;
+insert into test2 select * from test;
+-- Query returned successfully in 5 secs 396 msec.
+truncate table test2;
+
+create index id_idx on test2 (id);
+insert into test2 select * from test;
 
 
 do $$
