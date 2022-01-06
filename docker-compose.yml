@@ -9,4 +9,4 @@ services:
         ports:
           - '4000:5432'
         volumes:
-          - .:.
+          - /home/tkuczak/index-performance:/home/postgres
