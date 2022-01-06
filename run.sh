@@ -1,7 +1,6 @@
 #!/bin/bash
 
-git pull
-docker-compose down 
+git pull && docker-compose down 
 docker-compose up -d && docker exec -it index-performance_postgres_1 bash <<END
     su postgres
     psql < /home/postgres/inital-tests.sql
