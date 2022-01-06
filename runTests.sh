@@ -5,5 +5,5 @@ echo connected \
 && echo changed user \
 && pwd \
 && cd /var/run/postgresql \
-&& ls \
+&& ls -a \
 && psql
