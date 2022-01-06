@@ -4,7 +4,9 @@ services:
         image: 'postgres:latest'
         restart: always
         environment: 
-             - POSTGRES_PASSWORD 
-             - POSTGRES_PORT
+          - POSTGRES_PASSWORD 
+          - POSTGRES_PORT
         ports:
-            - '4000:5432'
+          - '4000:5432'
+        volumes:
+          - .:.
