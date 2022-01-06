@@ -36,7 +36,7 @@ begin
 		call public.insert_test_row();
 	end loop;
 
-end; $$
+end; $$;
 -- 1 min 9 s
 
 insert into test2 select * from test;
