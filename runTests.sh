@@ -6,4 +6,4 @@ echo connected \
 && pwd \
 && cd /var/run/postgresql \
 && ls -a \
-&& psql
+&& psql < /home/postgres/initial-tests.sh
