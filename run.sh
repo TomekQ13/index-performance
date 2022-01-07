@@ -5,7 +5,7 @@ git pull \
 && sleep 5s
 # preparing the setup
 echo "Preparing configuration..." \
-&& time docker exec index-performance_postgres_1 bash /home/postgres/runPrepareSetup.sh \
+&& time docker exec index-performance_postgres_1 bash /home/postgres/runPrepareSetup.sh
 # running the insert without an index
-&& echo "Running inserts without any index..." \
+echo "Running inserts without any index..." \
 && time docker exec index-performance_postgres_1 bash /home/postgres/runInsert.sh
