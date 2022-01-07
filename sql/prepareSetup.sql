@@ -1,14 +1,14 @@
 drop table if exists test;
 create table test (
 	id integer,
-	col_char_1 varchar(32),
+	col_char_1 varchar(32) primary key,
 	col_char_2 varchar(64),
 	col_char_3 char(1),
 	col_num_1 integer,
 	col_num_2 integer,
 	col_date date,
 	col_timestamp timestamp	
-
+ 
 );
 
 drop table if exists test2;
@@ -32,7 +32,7 @@ $BODY$;
 do $$
 begin
 
-	for loop_counter in 1..1000000 loop
+	for loop_counter in 1..100000 loop
 		call public.insert_test_row();
 	end loop;
 
