@@ -1,6 +1,6 @@
 drop table if exists test;
 create table test (
-	id integer,
+	id integer primary key,
 	col_char_1 varchar(32),
 	col_char_2 varchar(64),
 	col_char_3 char(1),
