@@ -8,4 +8,8 @@ echo "Preparing configuration..." \
 && time docker exec index-performance_postgres_1 bash /home/postgres/runPrepareSetup.sh
 # running the insert without an index
 echo "Running inserts without any index..." \
-&& time docker exec index-performance_postgres_1 bash /home/postgres/runInsert.sh
+&& for i in {1..10} 
+do
+    echo "Running iteration $i"
+    time docker exec index-performance_postgres_1 bash /home/postgres/runInsert.sh
+done
