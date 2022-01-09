@@ -12,5 +12,5 @@ echo "Running inserts without any index..." \
 do
     echo "Running iteration $i"
     echo "Iteration $i" >> times.txt
-    { time docker exec index-performance_postgres_1 bash /home/postgres/runInsert.sh ; } 2>> times.txt
+    { time docker exec index-performance_postgres_1 bash /home/postgres/runInsert.sh ; } 2>&1 | sed -n 3p >> times.txt
 done 
