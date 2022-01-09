@@ -11,6 +11,6 @@ echo "Running inserts without any index..." \
 && for i in {1..10} 
 do
     echo "Running iteration $i"
-    echo "Iteration $1" >> times.txt
+    echo "Iteration $i" >> times.txt
     { time docker exec index-performance_postgres_1 bash /home/postgres/runInsert.sh ; } 2>> times.txt
 done 
