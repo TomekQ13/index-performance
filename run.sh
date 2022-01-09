@@ -4,6 +4,7 @@ git pull \
 && docker-compose up --build -d \
 && sleep 5s
 # preparing the setup
+rm times.txt
 echo "Preparing configuration..." \
 && time docker exec index-performance_postgres_1 bash /home/postgres/runPrepareSetup.sh
 # running the insert without an index
@@ -12,5 +13,5 @@ echo "Running inserts without any index..." \
 do
     echo "Running iteration $i"
     { echo "Iteration $i " ; { time docker exec index-performance_postgres_1 bash /home/postgres/runInsert.sh ; } 2>&1 | sed -n 3p ; } | tr "\n" " " >> times.txt
-    echo "" >> timex.txt
+    echo "" >> times.txt
 done 
