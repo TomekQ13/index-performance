@@ -1,0 +1,1 @@
+create index num1_idx on test2 (col_num_1);
