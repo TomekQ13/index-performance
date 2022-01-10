@@ -1,0 +1,1 @@
+create index char1_idx on test2 (col_char_1);
