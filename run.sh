@@ -17,7 +17,7 @@ do
     { echo "No indexes - Iteration $i " ; { time docker exec index-performance_postgres_1 bash /home/postgres/runSQL.sh /home/postgres/sql/insert.sql ; } 2>&1 | sed -n 3p ; } | tr "\n" " " >> times.txt
     # append a newline at the end of the iterations
     echo "" >> times.txt
-done &&
+done
 && time docker exec index-performance_postgres_1 bash /home/postgres/runSQL.sh /home/postgres/sql/createIndexId.sql \
 && for i in {1..$iterationCount} 
 do
