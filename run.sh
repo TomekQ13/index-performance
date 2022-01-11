@@ -10,7 +10,7 @@ git pull \
 rm times.txt
 echo "Preparing configuration..." \
 && time docker exec index-performance_postgres_1 bash /home/postgres/runSQL.sh /home/postgres/sql/prepareSetup.sql \
-&& time docker exec index-performance_postgres_1 bash /home/postgres/runSQL.sh /home/postgres/sql/runInsert.sql \
+&& time docker exec index-performance_postgres_1 bash /home/postgres/runSQL.sh /home/postgres/sql/insert.sql \
 && time docker exec index-performance_postgres_1 bash /home/postgres/runSQL.sh /home/postgres/sql/truncateTest.sql
 # running the insert without an index
 echo "Running inserts without any index..." \
