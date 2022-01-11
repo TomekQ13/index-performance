@@ -1,7 +1,7 @@
 do $$
 declare
     max_id integer;
-begin;
+begin
 
     select coalesce(max(id),0) into max_id
     from test2;
