@@ -32,7 +32,7 @@ $BODY$;
 do $$
 begin
 
-	for loop_counter in 1..100000 loop
+	for loop_counter in 1..1000000 loop
 		call public.insert_test_row();
 	end loop;
 
