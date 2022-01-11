@@ -21,6 +21,7 @@ do
     echo "" >> $timesLogFile
     i=$(($i + 1))
 done \
+&& time docker exec index-performance_postgres_1 bash /home/postgres/runSQL.sh /home/postgres/sql/truncateTest2.sql \
 && time docker exec index-performance_postgres_1 bash /home/postgres/runSQL.sh /home/postgres/sql/createIndexId.sql \
 &&i=0 \
 && while [ "$i" -le "$iterationCount" ]
