@@ -25,7 +25,7 @@ do
 done \
 && time docker exec index-performance_postgres_1 bash /home/postgres/runSQL.sh /home/postgres/sql/truncateTest2.sql \
 && time docker exec index-performance_postgres_1 bash /home/postgres/runSQL.sh /home/postgres/sql/createIndexId.sql \
-&&i=0 \
+&& i=0 \
 && while [ "$i" -le "$iterationCount" ]
 do
     # times the insert, redirects the stderr output to stream 1, removes unnecessary lines and removes newline character between iteration n and time and saves to a file
